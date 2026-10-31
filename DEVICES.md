@@ -13,8 +13,8 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Firmware / build | TBD (`ro.build.fingerprint`) |
 | RAM / storage | TBD (`/proc/meminfo`, `df -h /data`) |
 | Current state | Lags a little; low risk, available now |
-| IP address on Wi-Fi | TBD (reserve it in the router so `adb connect` keeps working) |
-| Developer options / USB debugging | TBD |
+| IP address on Wi-Fi | 192.168.1.9 (not reserved in the router yet) |
+| Developer options / USB debugging | On. adb was waiting for the user to accept the prompt on the TV (2026-10-31). |
 
 ## TV 2: Haier (later)
 
