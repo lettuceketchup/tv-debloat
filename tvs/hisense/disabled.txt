@@ -1,0 +1,15 @@
+android.autoinstalls.config.google.gtvpai
+com.hisense.storemode
+fusion.android.tv.demo
+com.google.android.feedback
+com.google.android.play.games
+com.android.printspooler
+com.google.android.apps.tv.dreamx
+com.mediatek.partner.airplay
+com.mediatek.AirplayAPK
+com.vt.tv.homekitproxy
+com.hisense.alexa
+com.hisense.hibrowser
+com.google.android.marvin.talkback
+com.google.android.videos
+com.google.android.apps.tv.launcherx

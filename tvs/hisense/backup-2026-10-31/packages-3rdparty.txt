@@ -1,0 +1,16 @@
+package:com.alphainventor.filemanager
+package:com.anilab.android.tv
+package:com.apple.atve.androidtv.appletv
+package:com.balaji.alt
+package:com.crunchyroll.crunchyroid
+package:com.discoveryplus.tv.android
+package:com.graymatrix.did
+package:com.jio.media.stb.ondemand
+package:com.mxtech.videoplayer.television
+package:com.sonyliv
+package:com.spotify.tv.android
+package:com.valvesoftware.steamlink
+package:com.yablio.sendfilestotv
+package:in.startv.hotstar
+package:org.jellyfin.androidtv
+package:org.videolan.vlc
