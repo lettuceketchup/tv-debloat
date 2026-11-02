@@ -80,7 +80,7 @@ All in `Settings.Global` (writing needs `WRITE_SECURE_SETTINGS`). The TV's confi
 | `picture_color_temperature` | 0 User, 1 Cool, 2 Standard, 3 Warm | Live (`g_video__clr_temp`). The TV also writes the gains: Warm sets `picture_red_gain` 2 and `picture_blue_gain` −2, Standard sets both 0. Warm is visibly warmer (user, 2026-11-03) |
 | `sound_style` | 0 User, 1 Standard, 2 Night, 3 Sports, 4 Movie, 5 Music, 6 News | Live, loads the mode's EQ. Don't write 7 or 8 |
 | `hdmi_system_audio_control_enabled` | 0 TV speakers, 1 External audio system (ARC) | Sound → Speakers follows it. No ARC system to test the sound with yet |
-| `power_picture_off` | 1 on, 0 off | 0 blacks the picture with sound on; any key brings it back. The TV stays `mWakefulness=Awake` |
+| `power_picture_off` | 1 on, 0 off | 0 blacks the picture with sound on; any key brings it back. The TV stays `mWakefulness=Awake`. Standby keeps the 0, but the TV wakes with the picture on; writing 0 again then does nothing, so set it back to 1 when the TV turns off |
 | `picture_blue_light` | any | Stored, but no visible effect |
 | `sound_dialog_enhancement` | 0/1 | Passed to the firmware; no menu option, not checked by ear |
 | `tv_timer_sleep_timer_entry_values` | 0 Off, 1–6 = 10–60 min, 7 = 90, 8 = 120 | Only mirrors the menu; **writing it starts no timer** |
@@ -90,6 +90,8 @@ Other picture keys (brightness, contrast, saturation, sharpness, gamma, gains) a
 ## Behaviour worth knowing
 
 - **Standby from an app**: an accessibility service's `performGlobalAction(GLOBAL_ACTION_LOCK_SCREEN)` puts the TV to sleep like the power button; the remote wakes it normally.
+- **Settings writes of an unchanged value** don't reach the TV's config service: no change notification, no `setConfigValue`.
+- **Reinstalling the app** leaves its accessibility service unbound for a few seconds; re-setting `enabled_accessibility_services` rebinds it. `dumpsys accessibility` prints the bound services over two lines. The power button never reaches accessibility services; `dumpsys power` shows `mLastSleepReason` (`power_button`, or `accessibility` for the app's standby).
 - **Screensaver**: Projectivy's "Ambient Mode on Back double press" starts `Somnambulator`. Android falls back to Backdrop (`com.google.android.backdrop`), which was disabled in debloat batch 1. The dream fails and the screen just flashes. Re-enabling Backdrop or picking Colors (`com.android.dreams.basic`) would fix it; that's the user's call.
 - **Screenshots**: `screencap` shows HDMI input and YouTube video as black; only overlays and normal app UI appear.
 - **Stock quick menu** (the Settings key) works only on HDMI/Live TV and only has picture mode.
