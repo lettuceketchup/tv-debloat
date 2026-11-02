@@ -29,6 +29,7 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Current state | **Very slow and laggy.** Should gain the most. Stock launcher alone uses ~197 MB. |
 | IP address | 192.168.29.186 (not reserved; on a different network from the Hisense). Find it with a port-5555 scan. |
 | Developer options / USB debugging | On. adb authorized over Wi-Fi (2026-11-02). |
+| Remote | Haier HTR-U27E, Bluetooth (input device "HaierTV-RC"). MENU (≡) and the colour keys send HID usages the kernel calls `KEY_UNKNOWN`; a long MENU press is a separate key that opens Settings. Details: `tv-quick-settings/docs/haier-tests.md` |
 
 ## How the TVs are used
 
@@ -38,7 +39,7 @@ Applies to both TVs; note any differences per TV here.
 - **Streaming apps:** Hotstar, Prime Video, YouTube, YouTube Music, Netflix, SonyLIV, Zee5, JioCinema, Crunchyroll, Spotify and the other third-party apps (Hisense list in `tvs/hisense/backup-2026-10-31/`). Prime Video and YouTube Music confirmed in use; must keep.
 - **Jellyfin client:** watches the Jellyfin server that runs on this PC
 - **HDMI inputs:** a set-top box and/or other devices. Keep the input switcher, the TV tuner/source services and HDMI-CEC working.
-  - Haier picture/sound settings are stored in `Settings.Global` (`picture_backlight`, `picture_blue_light`, `picture_mode`, `sound_style`, ...); writing `picture_backlight` changes the panel immediately (tested 2026-11-02). Dump in `tv-quick-settings/docs/haier-global-settings.txt`. The stock quick menu (Settings key) only works on HDMI/Live TV and only has picture mode.
+  - Haier picture/sound settings are stored in `Settings.Global` (`picture_backlight`, `picture_blue_light`, `picture_mode`, `sound_style`, ...); writing `picture_backlight`, `picture_mode`, `sound_style`, `picture_color_temperature` or `power_picture_off` applies immediately; `picture_blue_light` does nothing visible (tested 2026-11-02, `tv-quick-settings/docs/haier-tests.md`). Dump in `tv-quick-settings/docs/haier-global-settings.txt`. The stock quick menu (Settings key) only works on HDMI/Live TV and only has picture mode.
   - Haier: the set-top box is a JioFiber box on HDMI. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`), so usage stats count HDMI viewing as Live TV time. Keep it.
 - Also check during setup: Chromecast / Google Cast, voice search on the remote, Bluetooth remote pairing
 
