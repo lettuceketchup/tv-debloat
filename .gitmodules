@@ -1,0 +1,3 @@
+[submodule "tv-quick-settings"]
+	path = tv-quick-settings
+	url = https://github.com/lettuceketchup/tv-quick-settings.git
