@@ -18,6 +18,8 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 
 ## TV 2: Haier (later)
 
+Reference for the TV and its remote (settings keys, key codes, quirks, adb tips): `tvs/haier/reference.md`.
+
 | Field | Value |
 |---|---|
 | Size | 55" |
@@ -30,7 +32,7 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Current state | **Very slow and laggy.** Should gain the most. Stock launcher alone uses ~197 MB. |
 | IP address | 192.168.29.186 (not reserved; on a different network from the Hisense). Find it with a port-5555 scan. |
 | Developer options / USB debugging | On. adb authorized over Wi-Fi (2026-11-02). |
-| Remote | Haier HTR-U27E, Bluetooth (input device "HaierTV-RC"). MENU (≡) and the colour keys send HID usages the kernel calls `KEY_UNKNOWN`; a long MENU press is a separate key that opens Settings. Details: `tv-quick-settings/docs/haier-tests.md` |
+| Remote | Haier HTR-U27E, Bluetooth (input device "HaierTV-RC"). Photo, buttons, key codes and how presses arrive: `tvs/haier/reference.md` |
 
 ## How the TVs are used
 
