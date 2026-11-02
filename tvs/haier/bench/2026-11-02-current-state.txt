@@ -1,0 +1,34 @@
+# haier / current-state / 2026-11-02 14:21:29 / home=com.spocky.projengmenu
+boot: kernel uptime at boot_completed 39.99s; wall clock from reboot command 56s
+boot: home screen resumed 58s after reboot command
+memory right after boot: MemAvailable: 628276 kB
+memory idle: MemAvailable: 525624 kB
+top processes by PSS:
+     74,461K: com.google.android.gms (pid 3885)
+     73,161K: com.spocky.projengmenu (pid 4210 / activities)
+     64,300K: system (pid 2876)
+     54,718K: com.google.android.katniss:search (pid 6686)
+     48,416K: com.android.vending (pid 4388)
+     38,903K: in.startv.hotstar (pid 6482)
+     35,988K: com.graymatrix.did (pid 6177)
+     33,942K: com.android.vending:background (pid 5073)
+     26,856K: com.sonyliv (pid 6291)
+     26,852K: com.google.android.katniss:interactor (pid 3907)
+     25,342K: com.google.android.apps.mediashell (pid 4735)
+     23,016K: com.google.android.gms.unstable (pid 5632)
+app launch ms (cold after force-stop / warm from home):
+  com.google.android.youtube.tv cold=1207 warm=101
+  com.netflix.ninja cold=1836 warm=142
+  com.amazon.amazonvideo.livingroom cold=1401 warm=149
+  in.startv.hotstar cold=1738 warm=353
+  org.jellyfin.androidtv cold=1815 warm=248
+  com.android.tv.settings cold=790 warm=202
+  com.android.vending cold=1735 warm=269
+home-screen jank (40 d-pad moves on com.spocky.projengmenu):
+Total frames rendered: 2844
+Janky frames: 2671 (93.92%)
+50th percentile: 24ms
+90th percentile: 31ms
+95th percentile: 32ms
+99th percentile: 34ms
+done: /f/Projects/tv-debloat/tvs/haier/bench/2026-11-02-current-state.txt

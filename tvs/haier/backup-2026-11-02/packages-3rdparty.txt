@@ -1,0 +1,9 @@
+package:com.crunchyroll.crunchyroid
+package:com.google.android.apps.nbu.smartconnect.tv
+package:com.graymatrix.did
+package:com.sonyliv
+package:com.spotify.tv.android
+package:in.startv.hotstar
+package:org.jellyfin.androidtv
+package:org.videolan.vlc
+package:pl.solidexplorer2

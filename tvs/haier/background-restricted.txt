@@ -1,0 +1,11 @@
+com.netflix.ninja
+com.amazon.amazonvideo.livingroom
+in.startv.hotstar
+com.graymatrix.did
+com.sonyliv
+com.crunchyroll.crunchyroid
+com.google.android.youtube.tv
+com.google.android.youtube.tvmusic
+com.spotify.tv.android
+org.jellyfin.androidtv
+org.videolan.vlc

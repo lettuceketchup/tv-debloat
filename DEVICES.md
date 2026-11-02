@@ -21,12 +21,14 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Field | Value |
 |---|---|
 | Size | 55" |
-| Exact model number | TBD (adb reports product songshan_emH, model "Smart TV"; check Settings → About) |
-| OS / home screen | Probably Google TV; Apps-only mode was probably turned on after the latest update. Confirm. |
-| Android version / firmware | TBD |
-| RAM / storage | TBD |
-| Current state | **Very slow and laggy.** Should gain the most. |
-| IP address | TBD |
+| Exact model number | TBD (adb reports product hanyang, model "haierATV"; check Settings → About) |
+| OS / home screen | **Android TV (not Google TV)**: stock launcher `com.google.android.tvlauncher` is the home app. |
+| Android version / security patch | Android 11, patch 2025-11-01 |
+| Firmware / build | `Haier/hanyang/hanyang:11/RTO5.260324.001/15077437`, MediaTek/MStar m7322 |
+| RAM / storage | 1.3 GB RAM (~460 MB available at idle); /data 4.2 GB, 1.1 GB free |
+| Current state | **Very slow and laggy.** Should gain the most. Stock launcher alone uses ~197 MB. |
+| IP address | 192.168.29.186 (not reserved; on a different network from the Hisense). Find it with a port-5555 scan. |
+| Developer options / USB debugging | On. adb authorized over Wi-Fi (2026-11-02). |
 
 ## How the TVs are used
 
@@ -36,6 +38,7 @@ Applies to both TVs; note any differences per TV here.
 - **Streaming apps:** Hotstar, Prime Video, YouTube, YouTube Music, Netflix, SonyLIV, Zee5, JioCinema, Crunchyroll, Spotify and the other third-party apps (Hisense list in `tvs/hisense/backup-2026-10-31/`). Prime Video and YouTube Music confirmed in use; must keep.
 - **Jellyfin client:** watches the Jellyfin server that runs on this PC
 - **HDMI inputs:** a set-top box and/or other devices. Keep the input switcher, the TV tuner/source services and HDMI-CEC working.
+  - Haier: the set-top box is a JioFiber box on HDMI. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`), so usage stats count HDMI viewing as Live TV time. Keep it.
 - Also check during setup: Chromecast / Google Cast, voice search on the remote, Bluetooth remote pairing
 
 ## This PC

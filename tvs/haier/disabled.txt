@@ -1,0 +1,14 @@
+tv.anoki.acr.controller
+android.autoinstalls.config.haier.hanyang
+fusion.android.tv.demo
+com.google.android.backdrop
+com.google.android.feedback
+com.android.printspooler
+com.haier.apps
+com.haierubic.usmartdevice
+com.cutralview.sharetv
+com.google.android.apps.nbu.smartconnect.tv
+com.google.android.tvlauncher
+com.google.android.leanbacklauncher.partnercustomizer
+com.google.android.tvrecommendations
+com.haier.launcher.haiermatrix
