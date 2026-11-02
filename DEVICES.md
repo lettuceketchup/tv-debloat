@@ -24,6 +24,7 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Exact model number | TBD (adb reports product hanyang, model "haierATV"; check Settings → About) |
 | OS / home screen | **Android TV (not Google TV)**: stock launcher `com.google.android.tvlauncher` is the home app. |
 | Android version / security patch | Android 11, patch 2025-11-01 |
+| Display | 4K panel, but Android draws at 1920×1080, 320 dpi (its only display mode, `dumpsys display`, 2026-11-02); video plays at 4K on a separate layer and the UI is upscaled 2× |
 | Firmware / build | `Haier/hanyang/hanyang:11/RTO5.260324.001/15077437`, MediaTek/MStar m7322 |
 | RAM / storage | 1.3 GB RAM (~460 MB available at idle); /data 4.2 GB, 1.1 GB free |
 | Current state | **Very slow and laggy.** Should gain the most. Stock launcher alone uses ~197 MB. |
