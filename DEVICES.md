@@ -43,7 +43,7 @@ Applies to both TVs; note any differences per TV here.
 - **Jellyfin client:** watches the Jellyfin server that runs on this PC
 - **HDMI inputs:** a set-top box and/or other devices. Keep the input switcher, the TV tuner/source services and HDMI-CEC working.
   - Haier picture/sound settings are stored in `Settings.Global` (`picture_backlight`, `picture_blue_light`, `picture_mode`, `sound_style`, ...); writing `picture_backlight`, `picture_mode`, `sound_style`, `picture_color_temperature` or `power_picture_off` applies immediately; `picture_blue_light` does nothing visible (tested 2026-11-02, `tv-quick-settings/docs/haier-tests.md`). Dump in `tv-quick-settings/docs/haier-global-settings.txt`. The stock quick menu (Settings key) only works on HDMI/Live TV and only has picture mode.
-  - Haier ports: HDMI 4 = Jio set-top box, HDMI 2 = camera, HDMI 1 = PS5 or PC (long cable, swapped as needed), HDMI 3 = not connected. Projectivy card images: `tvs/haier/input-icons/` (on the TV in `Pictures/InputIcons`).
+  - Haier ports: HDMI 4 = Jio set-top box, HDMI 2 = camera, HDMI 3 = PS5 or PC (long cable, swapped as needed), HDMI 1 = not connected. Projectivy card images: `tvs/haier/input-icons/` (on the TV in `Pictures/InputIcons`).
   - Haier: the set-top box is a JioFiber box on HDMI. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`), so usage stats count HDMI viewing as Live TV time. Keep it.
 - Also check during setup: Chromecast / Google Cast, voice search on the remote, Bluetooth remote pairing
 

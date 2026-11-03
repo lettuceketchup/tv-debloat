@@ -12,7 +12,7 @@ One place for how the Haier and its remote behave, for the debloat work and the 
 | Display | 4K panel; Android draws at **1920×1080, 320 dpi** (960×540 dp), font scale default. Video plays on a separate layer at 4K |
 | Network | `adb connect 192.168.29.186:5555` (IP not reserved; find it with a port-5555 scan on 192.168.29.x) |
 | Home screen | Projectivy Launcher (`com.spocky.projengmenu`), set as home 2026-11-02 |
-| HDMI | 1 = PS5 or PC, 2 = camera, 3 = empty, 4 = JioFiber set-top box. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`). Projectivy card images: `input-icons/` |
+| HDMI | 1 = empty, 2 = camera, 3 = PS5 or PC, 4 = JioFiber set-top box. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`). Projectivy card images: `input-icons/` |
 
 **Speed.** The UI thread is slow. Building about 100 views per key press took 65–190 ms here; updating views in place takes 10–20 ms. `screencap` takes 4–9 s and loads the CPU, so don't take screenshots while measuring lag. Measure frame times with `dumpsys gfxinfo <package> reset`, then `dumpsys gfxinfo <package> framestats` after the presses (the bar's window is the one with ~120 views). The GPU is the weak part: a `HorizontalScrollView`'s fading edges (an offscreen layer per frame) held scrolling to about 30 fps, and property animations (scale, translation, alpha) cost almost nothing (2026-11-03).
 

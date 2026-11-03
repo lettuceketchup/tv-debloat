@@ -13,8 +13,8 @@ WHITE = (250, 250, 252)
 CARDS = [
     ('hdmi4-jio', 'Jio', 'HDMI 4', '\uE7F4', ['#16306a', '#3f6fc0', '#7fc0ee']),
     ('hdmi2-camera', 'Camera', 'HDMI 2', '\uE722', ['#0f4a52', '#2f9a92', '#62d0c0']),
-    ('hdmi1-ps5-pc', 'PS5 / PC', 'HDMI 1', '\uE7FC', ['#2b2a6e', '#6f6fc0', '#e8899a']),
-    ('hdmi3', 'HDMI 3', 'Not connected', '\uE703', ['#2a3550', '#6d7b98', '#c9d3e6']),
+    ('hdmi3-ps5-pc', 'PS5 / PC', 'HDMI 3', '\uE7FC', ['#2b2a6e', '#6f6fc0', '#e8899a']),
+    ('hdmi1', 'HDMI 1', '', '\uE703', ['#2a3550', '#6d7b98', '#c9d3e6']),
 ]
 
 def card(name, sub, glyph, stops):
@@ -27,8 +27,9 @@ def card(name, sub, glyph, stops):
             px[x, y] = mix(s[1], s[0], t / 0.55) if t < 0.55 else mix(s[2], s[1], (t - 0.55) / 0.45)
     d = ImageDraw.Draw(im)
     d.text((118, H // 2), glyph, font=F('SegoeIcons.ttf', 108), fill=WHITE, anchor='mm')
-    d.text((236, H // 2 - 30), name, font=F('seguisb.ttf', 72), fill=WHITE, anchor='lm')
-    d.text((239, H // 2 + 44), sub, font=F('seguisb.ttf', 42), fill=WHITE, anchor='lm')
+    d.text((236, H // 2 - 30 if sub else H // 2), name, font=F('seguisb.ttf', 72), fill=WHITE, anchor='lm')
+    if sub:
+        d.text((239, H // 2 + 44), sub, font=F('seguisb.ttf', 42), fill=WHITE, anchor='lm')
     mask = Image.new('L', (W, H), 0)
     ImageDraw.Draw(mask).rounded_rectangle([0, 0, W - 1, H - 1], R, fill=255)
     out = Image.new('RGBA', (W, H), (0, 0, 0, 0))
