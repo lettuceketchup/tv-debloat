@@ -39,7 +39,7 @@ Out of scope: ads inside apps (YouTube's own player ads can't be removed by disa
   - `backup-<date>/`: package lists saved before the first change
   - `changes.md`: every change made on the TV, with its reason, result and undo
   - `disabled.txt`: disabled packages, one per line, to reapply after a firmware update
-  - Haier only: [reference.md](tvs/haier/reference.md) (the TV, its remote and its keys), `background-restricted.txt`, `bench/` results, `input-icons/` (Projectivy HDMI cards and the script that draws them), `wallpapers/`
+  - Haier only: [reference.md](tvs/haier/reference.md) (the TV, its remote and its keys), `background-restricted.txt`, `bench/` results, `input-icons/` (Projectivy HDMI cards and the script that draws them), `quick-settings/` (screenshots and GIFs of the bar), `wallpapers/`
   - Hisense only: `package-notes.md`
 - [bench.sh](bench.sh): boot time, memory, app launch and home-screen jank benchmark over adb
 - [tv-quick-settings/](tv-quick-settings/): submodule ([lettuceketchup/tv-quick-settings](https://github.com/lettuceketchup/tv-quick-settings), private). The Haier has no quick menu outside Live TV, so this app adds one: a bar over any app, opened from the remote, with backlight, warmth, picture and sound modes, colour-key presets, screen off and a sleep timer. Clone with `git clone --recurse-submodules`, or run `git submodule update --init`.
@@ -56,6 +56,45 @@ Out of scope: ads inside apps (YouTube's own player ads can't be removed by disa
   - Watch whether `com.haier.launcher.haiermatrix` (Haier TV+) re-enables itself again. Suspect: the Zeasn service `com.zeasn.deviceportal.asdprovider.haier8688.bluetooth`, left alone because it may update the remote.
   - Optional benchmark comparisons with `bench.sh`.
 - When finished, turn off only **USB debugging**, not the Developer options switch, which may reset the 0.5 animation scales.
+
+## Screenshots
+
+### tv-quick-settings bar (emulator)
+
+Recorded on the `haier_tv` emulator running the real build, so the backdrop is plain grey (the emulator has no Haier panel or video). On the TV the bar floats over whatever is playing.
+
+![The bar opening, backlight up, then the Picture pane (emulator recording)](tvs/haier/quick-settings/bar-demo.gif)
+
+| Bar open | Picture mode pane |
+|---|---|
+| ![Bar with Backlight, Warmth, Preset, Picture, Sound, Output and Sleep tiles](tvs/haier/quick-settings/bar-open.png) | ![Picture tile open with its mode list](tvs/haier/quick-settings/bar-picture-pane.png) |
+
+Colour keys on the remote switch presets without opening the bar (Evening shown), and the sleep timer warns a minute before it turns the TV off.
+
+![Pressing the colour keys: Night, Evening, Day, then picture off](tvs/haier/quick-settings/presets-demo.gif)
+
+| Preset toast | Sleep warning |
+|---|---|
+| ![Evening preset toast: Backlight 60, Warm](tvs/haier/quick-settings/preset-toast.png) | ![Sleeping in 1 min, OK adds 10 min, Back dismisses](tvs/haier/quick-settings/sleep-warning.png) |
+
+### Haier Projectivy HDMI cards
+
+Drawn by [make_cards.py](tvs/haier/input-icons/make_cards.py) for the Projectivy home screen, one per port.
+
+| HDMI 1 | HDMI 2 | HDMI 3 | HDMI 4 |
+|---|---|---|---|
+| <img src="tvs/haier/input-icons/hdmi1.png" width="220"> | <img src="tvs/haier/input-icons/hdmi2-camera.png" width="220"> | <img src="tvs/haier/input-icons/hdmi3-ps5-pc.png" width="220"> | <img src="tvs/haier/input-icons/hdmi4-jio.png" width="220"> |
+
+The card styles compared before drawing them (mock):
+
+<img src="tvs/haier/input-icons/styles-preview.png" width="600">
+
+### Haier remote (HTR-U27E)
+
+<table><tr>
+<td><img src="tvs/haier/remote-htr-u27e.jpg" width="80"></td>
+<td valign="top">Key codes and how presses arrive are in <a href="tvs/haier/reference.md">reference.md</a>.</td>
+</tr></table>
 
 ## References
 
