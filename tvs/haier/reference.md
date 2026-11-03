@@ -20,7 +20,7 @@ One place for how the Haier and its remote behave, for the debloat work and the 
 
 ![Haier HTR-U27E remote](remote-htr-u27e.jpg)
 
-Bluetooth (and IR) voice remote. Input device `HaierTV-RC`, `/dev/input/event3`. Its key layout file (`/vendor/usr/keylayout/Vendor_005d_Product_0001.kl`) can't be read over adb.
+Bluetooth (and IR) voice remote. Input device `HaierTV-RC`, `/dev/input/event3` until 2026-11-02, `event2` on 2026-11-03 (the number can change; check `getevent -pl`). Volume Up/Down send HID usages 0x0c0080/0x0c0081 (`KEY_UNKNOWN` in the kernel). Its key layout file (`/vendor/usr/keylayout/Vendor_005d_Product_0001.kl`) can't be read over adb.
 
 ### Buttons (top to bottom)
 
@@ -66,7 +66,8 @@ Logged by the app's accessibility service (keyCode, scanCode) and `getevent` (HI
   | Blue | 217 `RO` | Opens the firmware's "Magic Board" |
 
 - **A very fast double press can arrive as one press.** On 2026-11-03, two fast Back taps and two fast MENU taps each reached the kernel as a single event (held 339 and 393 ms). Other fast pairs, 185–350 ms apart, arrived as two. Nothing on the TV, Projectivy included, can see a second tap the remote never sent.
-- **Every accessibility service that filters keys sees every key**, even one another service consumed. Projectivy's service (`com.spocky.projengmenu/.services.ProjectivyAccessibilityService`, button remapping on) and TV Quick Settings both run.
+- **Every accessibility service that filters keys sees every key**, even one another service consumed. Projectivy's service (`com.spocky.projengmenu/.services.ProjectivyAccessibilityService`, button remapping on) ran beside TV Quick Settings until 2026-11-03; it's off now (see volume holds below).
+- **Volume holds and key filters.** While any accessibility service filters keys (`dumpsys input` → `InputFilterEnabled: true`), Android 11's `KeyboardInterceptor` hands Volume Up/Down straight to the system's volume handler: no service sees them and no key repeats are made, so a hold steps once. tv-quick-settings turns its filter off after each volume change until 5 s after the last one (unless its bar or sleep warning is up), so a hold within that time repeats; the first press after a pause always steps once. The filter is off only while no service asks for it. Projectivy's volume fix turns its filter off only when the volume dialog appears and back on 5 s later regardless, which cut holds or kept them from starting, so **Projectivy's accessibility service is off since 2026-11-03** (its button remapping, Back-double-press ambient mode, is lost; that dream was broken anyway). Held-volume steps land 30–250 ms apart and sometimes out of order even with no filter: that's the TV's own speed (2026-11-03).
 - `adb shell input keyevent` keys don't reach accessibility services (at least on the emulator). The tv-quick-settings debug build takes keys over `am broadcast -a io.github.lettuceketchup.tvqs.DEBUG_KEY --es key <NAME>` instead. Those go to the app only, not to the app on screen.
 
 ## Picture and sound settings
