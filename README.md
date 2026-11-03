@@ -28,26 +28,33 @@ Out of scope: ads inside apps (YouTube's own player ads can't be removed by disa
 | C | **Launcher swap only** (Projectivy Launcher, FLauncher, or a repo launcher such as [Claude-TV](https://github.com/vishalsingh2972/Claude-TV) or [tv-home](https://github.com/mihirgupta0900/tv-home)) | Replaces the ad-filled home screen and leaves the system alone | Smallest change | Google TV's own home keeps running in the background unless disabled; Google TV gives its setup app Home-button priority |
 | D | **Light-touch tweaks** ([Tellyscope](https://github.com/man15h/tellyscope) or plain adb) | Private DNS ad-blocking, shorter animations, cache clearing | Nearly zero risk; good first step | Doesn't remove the ad services |
 
-**Suggested path:** start with D (quick and safe), then A on the Hisense with a launcher from C, and look at B's lists as a reference for what's safe to disable. Decide in the first Claude Code session.
+**Chosen path (used on both TVs):** D first (quick and safe), then A with Projectivy Launcher from C. B's lists were read only as a reference for what's safe to disable.
 
 ## Files
 
 - [DEVICES.md](DEVICES.md): the TVs, their software, the network, and the tools on this PC
 - [CHECKLIST.md](CHECKLIST.md): prep, per-TV run and verification checklists
 - [CLAUDE.md](CLAUDE.md): rules for Claude Code sessions in this folder
-- `tvs/<tv>/`: created per TV when work starts (package backups, change log, disable list)
+- `tvs/<tv>/`: one folder per TV
+  - `backup-<date>/`: package lists saved before the first change
+  - `changes.md`: every change made on the TV, with its reason, result and undo
+  - `disabled.txt`: disabled packages, one per line, to reapply after a firmware update
+  - Haier only: [reference.md](tvs/haier/reference.md) (the TV, its remote and its keys), `background-restricted.txt`, `bench/` results, `input-icons/` (Projectivy HDMI cards and the script that draws them), `wallpapers/`
+  - Hisense only: `package-notes.md`
 - [bench.sh](bench.sh): boot time, memory, app launch and home-screen jank benchmark over adb
-- [tv-quick-settings/](tv-quick-settings/): submodule ([lettuceketchup/tv-quick-settings](https://github.com/lettuceketchup/tv-quick-settings), private). A quick settings overlay app (backlight, blue light, picture/sound modes) for the Haier, which lacks one outside Live TV. Clone with `git clone --recurse-submodules`, or run `git submodule update --init`.
+- [tv-quick-settings/](tv-quick-settings/): submodule ([lettuceketchup/tv-quick-settings](https://github.com/lettuceketchup/tv-quick-settings), private). The Haier has no quick menu outside Live TV, so this app adds one: a bar over any app, opened from the remote, with backlight, warmth, picture and sound modes, colour-key presets, screen off and a sleep timer. Clone with `git clone --recurse-submodules`, or run `git submodule update --init`.
 
-## Status (2026-11-02)
+## Status (2026-11-03)
 
 - **Hisense:** done (tweaks, 15 packages disabled, Projectivy). See `tvs/hisense/`.
-- **Haier:** debloat done and in daily use to see how it holds up (4 batches, Projectivy, background restriction on 11 streaming apps). See `tvs/haier/changes.md`.
+- **Haier:** debloat done and in daily use (4 batches, Projectivy, background restriction on 11 streaming apps). See `tvs/haier/changes.md`.
+  - Projectivy is set up with a clock and date in the status bar and custom HDMI cards (HDMI 1 empty, 2 camera, 3 PS5 or PC, 4 Jio set-top box). The Bing "Photo of the Day" wallpaper plugin is installed, because Projectivy's Reddit source stays blurred on this network.
+  - The tv-quick-settings release build is installed and in use. Projectivy's accessibility service is off, because it broke held volume; that also turned off Projectivy's button remapping.
 - **Open on the Haier:**
+  - In Projectivy, pick the new `hdmi1.png` and `hdmi3-ps5-pc.png` images for the HDMI 1 and HDMI 3 cards (the ports were mislabelled before 2026-11-03).
   - Test YouTube and Spotify casting. Spotify Connect may need `cmd appops set com.spotify.tv.android RUN_ANY_IN_BACKGROUND allow`.
   - Watch whether `com.haier.launcher.haiermatrix` (Haier TV+) re-enables itself again. Suspect: the Zeasn service `com.zeasn.deviceportal.asdprovider.haier8688.bluetooth`, left alone because it may update the remote.
   - Optional benchmark comparisons with `bench.sh`.
-  - Quick settings app: design stage, continued in `tv-quick-settings/`.
 - When finished, turn off only **USB debugging**, not the Developer options switch, which may reset the 0.5 animation scales.
 
 ## References
