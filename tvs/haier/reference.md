@@ -10,7 +10,7 @@ One place for how the Haier and its remote behave, for the debloat work and the 
 | Software | Android TV 11 (not Google TV), patch 2025-11-01, build `Haier/hanyang/hanyang:11/RTO5.260324.001/15077437` |
 | Chip | MediaTek/MStar m7322 (ARMv8 cores, 32-bit userland: `armeabi-v7a`), 1.3 GB RAM |
 | Display | 4K panel; Android draws at **1920×1080, 320 dpi** (960×540 dp), font scale default. Video plays on a separate layer at 4K |
-| Network | `adb connect 192.168.29.186:5555` (IP not reserved; find it with a port-5555 scan on 192.168.29.x) |
+| Network | `adb connect <haier-ip>:5555` (IP not reserved; find it with a port-5555 scan on the TV's subnet) |
 | Home screen | Projectivy Launcher (`com.spocky.projengmenu`), set as home 2026-11-02 |
 | HDMI | 1 = empty, 2 = camera, 3 = PS5 or PC, 4 = JioFiber set-top box. HDMI is shown through the MediaTek Live TV app (`com.mediatek.wwtv.tvcenter`). Projectivy card images: `input-icons/` |
 
@@ -100,7 +100,7 @@ Other picture keys (brightness, contrast, saturation, sharpness, gamma, gains) a
 
 ## Working on the TV over adb
 
-- Use `adb -s 192.168.29.186:5555` (never `adb -e`, and `-s emulator-5554` for the `haier_tv` emulator).
+- Use `adb -s <haier-ip>:5555` (never `adb -e`, and `-s emulator-5554` for the `haier_tv` emulator).
 - In Git Bash, set `MSYS_NO_PATHCONV=1` for commands with device paths (`/sdcard/...`), or Bash rewrites them into Windows paths.
 - Useful logcat tags: `QuickService` (the app, with the bar state per key), `TVSettingConfig` / `TV_MtkTvConfig` (settings being applied), `PictureFragment` (the TV menu), `MTK_KL` (kernel, very noisy).
 - To see what the TV menu writes, diff `settings list global | grep ^picture_` every 0.3 s while the user changes the menu (`tv-quick-settings/demo/out/tv7/diff.sh` did this, git-ignored). Toybox `diff` prints unified `+`/`-` lines.

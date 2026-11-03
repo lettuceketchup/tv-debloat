@@ -13,7 +13,7 @@ Fields marked **TBD** get filled in from the TV (Settings → System → About) 
 | Firmware / build | 01.00.04.06 (`Hisense/songshan_emH/songshan:11/RTT2.220118.001/01.00.04.06`), MediaTek |
 | RAM / storage | 1.75 GB RAM (~580 MB available at idle); /data 6.7 GB, 2.3 GB free |
 | Current state | Lags a little; low risk, available now |
-| IP address on Wi-Fi | 192.168.1.9 (not reserved in the router yet) |
+| IP address on Wi-Fi | `<hisense-ip>` (not reserved in the router yet) |
 | Developer options / USB debugging | On. adb authorized over Wi-Fi (2026-10-31). |
 
 ## TV 2: Haier (later)
@@ -30,7 +30,7 @@ Reference for the TV and its remote (settings keys, key codes, quirks, adb tips)
 | Firmware / build | `Haier/hanyang/hanyang:11/RTO5.260324.001/15077437`, MediaTek/MStar m7322 |
 | RAM / storage | 1.3 GB RAM (~460 MB available at idle); /data 4.2 GB, 1.1 GB free |
 | Current state | **Very slow and laggy.** Should gain the most. Stock launcher alone uses ~197 MB. |
-| IP address | 192.168.29.186 (not reserved; on a different network from the Hisense). Find it with a port-5555 scan. |
+| IP address | `<haier-ip>` (not reserved; on a different network from the Hisense). Find it with a port-5555 scan. |
 | Developer options / USB debugging | On. adb authorized over Wi-Fi (2026-11-02). |
 | Remote | Haier HTR-U27E, Bluetooth (input device "HaierTV-RC"). Photo, buttons, key codes and how presses arrive: `tvs/haier/reference.md` |
 

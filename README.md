@@ -42,7 +42,7 @@ Out of scope: ads inside apps (YouTube's own player ads can't be removed by disa
   - Haier only: [reference.md](tvs/haier/reference.md) (the TV, its remote and its keys), `background-restricted.txt`, `bench/` results, `input-icons/` (Projectivy HDMI cards and the script that draws them), `quick-settings/` (screenshots and GIFs of the bar), `wallpapers/`
   - Hisense only: `package-notes.md`
 - [bench.sh](bench.sh): boot time, memory, app launch and home-screen jank benchmark over adb
-- [tv-quick-settings/](tv-quick-settings/): submodule ([lettuceketchup/tv-quick-settings](https://github.com/lettuceketchup/tv-quick-settings), private). The Haier has no quick menu outside Live TV, so this app adds one: a bar over any app, opened from the remote, with backlight, warmth, picture and sound modes, colour-key presets, screen off and a sleep timer. Clone with `git clone --recurse-submodules`, or run `git submodule update --init`.
+- [tv-quick-settings/](tv-quick-settings/): submodule ([lettuceketchup/tv-quick-settings](https://github.com/lettuceketchup/tv-quick-settings)). The Haier has no quick menu outside Live TV, so this app adds one: a bar over any app, opened from the remote, with backlight, warmth, picture and sound modes, colour-key presets, screen off and a sleep timer. Clone with `git clone --recurse-submodules`, or run `git submodule update --init`.
 
 ## Status (2026-11-03)
 
